@@ -6,7 +6,7 @@ Imports System.Windows.Forms
 Public Class MDIParent1
     Dim dontaskclose = False
     Dim unwanted As Integer = 0
-    Dim version As String = 0.1
+    Dim version As String = "0.1"
     Dim potentialvirus As Integer = 0
     Dim virus As Integer = 0
     <DllImport("kernel32.dll", SetLastError:=True)>
@@ -163,7 +163,7 @@ Public Class MDIParent1
             Application.Exit()
         End If
         UpdateGroups()
-        If Not version = New Net.WebClient().DownloadString("https://www.taart.site/ramenen/ver.txt") Then
+        If Not version.StartsWith(New Net.WebClient().DownloadString("https://www.taart.site/ramenen/ver.txt")) Then
             Dim updatedialog As New Update
             updatedialog.MdiParent = Me
             updatedialog.Show()
