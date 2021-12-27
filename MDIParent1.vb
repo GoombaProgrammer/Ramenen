@@ -6,7 +6,7 @@ Imports System.Windows.Forms
 Public Class MDIParent1
     Dim dontaskclose = False
     Dim unwanted As Integer = 0
-    Dim version As String = "0.3"
+    Dim version As String = "0.4"
     Dim potentialvirus As Integer = 0
     Dim virus As Integer = 0
     <DllImport("kernel32.dll", SetLastError:=True)>

@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.Ramenen_2._75_For_Windows.SplashScreen1
+            Me.MainForm = Global.Ramenen_For_Work.SplashScreen1
         End Sub
     End Class
 End Namespace
