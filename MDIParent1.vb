@@ -4,9 +4,9 @@ Imports System.Text
 Imports System.Windows.Forms
 
 Public Class MDIParent1
-
+    Dim dontaskclose = False
     Dim unwanted As Integer = 0
-
+    Dim version As String = 0.1
     Dim potentialvirus As Integer = 0
     Dim virus As Integer = 0
     <DllImport("kernel32.dll", SetLastError:=True)>
@@ -39,10 +39,17 @@ Public Class MDIParent1
         ChildForm.Show()
     End Sub
     Private Sub Closings(ByVal sender As Object, ByVal e As EventArgs) Handles Me.FormClosing
-        Dim ays = MsgBox("This will end your Ramenen session.", MsgBoxStyle.YesNo, "End Ramenen")
-        If ays = MsgBoxResult.No Then
-            Dim newme = New MDIParent1
-            newme.Show()
+        If Not dontaskclose Then
+            Dim ays = MsgBox("This will end your Ramenen session.", MsgBoxStyle.YesNo, "End Ramenen")
+            If ays = MsgBoxResult.No Then
+                Dim newme = New MDIParent1
+                For Each ChildForm As Form In Me.MdiChildren
+                    ChildForm.MdiParent = newme
+                Next
+                newme.Show()
+                dontaskclose = True
+                Me.Close()
+            End If
         End If
     End Sub
     Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs)
@@ -156,12 +163,17 @@ Public Class MDIParent1
             Application.Exit()
         End If
         UpdateGroups()
+        If Not version = New Net.WebClient().DownloadString("https://www.taart.site/ramenen/ver.txt") Then
+            Dim updatedialog As New Update
+            updatedialog.MdiParent = Me
+            updatedialog.Show()
+        End If
     End Sub
 
     Private Sub CreateFolderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CreateFolderToolStripMenuItem.Click
         Me.TopMost = False
         Dim fName = InputBox("Group name:", "Enter a name for the group.")
-        IO.Directory.CreateDirectory("C:\VirtualSystem\Ramenen\Groups\" + fName)
+        IO.Directory.CreateDirectory("C:\VirtualSystem\Ramenen\Groups\" + fName.Replace("..", ""))
         UpdateGroups()
         Me.TopMost = True
     End Sub
@@ -191,7 +203,7 @@ Public Class MDIParent1
     End Sub
     Private Sub NewFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewFileToolStripMenuItem.Click
         Me.TopMost = False
-        Dim newFileName = InputBox("Enter the group and file name. For example: groupname\foo.bar")
+        Dim newFileName = InputBox("Enter the group And file name. For example: groupname\foo.bar")
         If Not newFileName.Contains("\") Then
             MsgBox("Invalid opcode.")
         Else
@@ -295,6 +307,34 @@ Public Class MDIParent1
             'Other exceptions
 
         End Try
+
+    End Sub
+
+    Private Sub RenameToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RenameToolStripMenuItem.Click
+        Try
+            Me.TopMost = False
+            Dim oldName = InputBox("Enter the file name and group you want to move (ex. Programs\tgo.rex)")
+            Me.TopMost = True
+            Me.TopMost = False
+            Dim newName = InputBox("Enter the new file name and group (ex. Programs\tgo_backup.rex)")
+            Me.TopMost = True
+            IO.File.Move("C:\VirtualSystem\Ramenen\Groups\" & oldName, "C:\VirtualSystem\Ramenen\Groups\" & newName)
+            Dim newme As New MDIParent1
+            For Each ChildForm As Form In Me.MdiChildren
+                ChildForm.MdiParent = newme
+            Next
+            newme.Show()
+            dontaskclose = True
+            Me.Close()
+        Catch
+            Dim newOops As New Oops
+            newOops.setReason("Fatal error during move! Does the file / group exist?")
+            newOops.MdiParent = Me
+            newOops.Show()
+        End Try
+    End Sub
+
+    Private Sub MenuStrip_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip.ItemClicked
 
     End Sub
 End Class

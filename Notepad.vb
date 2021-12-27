@@ -49,7 +49,7 @@ Public Class Notepad
             If IO.Directory.Exists("C:\VirtualSystem\Ramenen\Groups\" & newFileName.Split("\")(0)) Then
                 IO.File.WriteAllText("C:\VirtualSystem\Ramenen\Groups\" & newFileName.Split("\")(0) & "\" & newFileName.Split("\")(1), RichTextBox1.Text)
             Else
-                MsgBox("Invalid dicode.")
+                MsgBox("Invalid group name. Go to File > Create group to make one.")
             End If
         End If
         MDIParent1.TopMost = True
