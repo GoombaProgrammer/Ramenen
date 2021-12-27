@@ -163,6 +163,7 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="Resources\calc.rex" />
     <None Include="Resources\colors.rex" />
     <None Include="Resources\drawingpad.rex" />
     <None Include="Resources\tgo.rex" />

@@ -6,7 +6,7 @@ Imports System.Windows.Forms
 Public Class MDIParent1
     Dim dontaskclose = False
     Dim unwanted As Integer = 0
-    Dim version As String = "0.2"
+    Dim version As String = "0.3"
     Dim potentialvirus As Integer = 0
     Dim virus As Integer = 0
     <DllImport("kernel32.dll", SetLastError:=True)>
@@ -146,6 +146,7 @@ Public Class MDIParent1
             IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\colors.rex", My.Resources.colors)
             IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\tgo.rex", My.Resources.tgo)
             IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\drawingpad.rex", My.Resources.drawingpad)
+            IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\calculator.rex", My.Resources.calc)
             IO.File.Create("C:\VirtualSystem\Ramenen\System\progman.rpf").Close()
             IO.File.WriteAllText("C:\VirtualSystem\Ramenen\System\progman.rpf", "RMN::StartProgramManager(WithByte(x20));")
             IO.File.Create("C:\VirtualSystem\Ramenen\System\RMN.rpr").Close()
