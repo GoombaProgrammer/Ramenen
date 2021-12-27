@@ -337,4 +337,32 @@ Public Class MDIParent1
     Private Sub MenuStrip_ItemClicked(sender As Object, e As ToolStripItemClickedEventArgs) Handles MenuStrip.ItemClicked
 
     End Sub
+
+    Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
+        Me.TopMost = False
+        Dim oldName = InputBox("Which file or group do you want to delete? (ex. Programs\example.rex)")
+        Me.TopMost = True
+        Try
+            If Not oldName = "" Then
+                If IO.File.Exists("C:\VirtualSystem\Ramenen\Groups\" & oldName) Then
+                    IO.File.Delete("C:\VirtualSystem\Ramenen\Groups\" & oldName)
+                Else
+                    If IO.Directory.Exists("C:\VirtualSystem\Ramenen\Groups\" & oldName) Then
+                        IO.Directory.Delete("C:\VirtualSystem\Ramenen\Groups\" & oldName, True)
+                    End If
+                End If
+            Else
+                Dim newOops As New Oops
+                newOops.setReason("Fatal error during deletion! Does the file / group exist?")
+                newOops.MdiParent = Me
+                newOops.Show()
+            End If
+        Catch
+            Dim newOops As New Oops
+            newOops.setReason("Fatal error during deletion! Does the file / group exist?")
+            newOops.MdiParent = Me
+            newOops.Show()
+        End Try
+        UpdateGroups()
+    End Sub
 End Class

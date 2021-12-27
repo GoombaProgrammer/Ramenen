@@ -6,9 +6,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D7D59A14-B04D-49A7-BBAF-4E9EB16700B1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Ramenen_2._75_For_Windows.My.MyApplication</StartupObject>
-    <RootNamespace>Ramenen_2._75_For_Windows</RootNamespace>
-    <AssemblyName>Ramenen 2.75 For Windows</AssemblyName>
+    <StartupObject>Ramenen_For_Work.My.MyApplication</StartupObject>
+    <RootNamespace>Ramenen_For_Work</RootNamespace>
+    <AssemblyName>Ramenen FW</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -22,7 +22,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Ramenen 2.75 For Windows.xml</DocumentationFile>
+    <DocumentationFile>Ramenen FW.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -33,7 +33,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Ramenen 2.75 For Windows.xml</DocumentationFile>
+    <DocumentationFile>Ramenen FW.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
