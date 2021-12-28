@@ -6,7 +6,7 @@ Imports System.Windows.Forms
 Public Class MDIParent1
     Dim dontaskclose = False
     Dim unwanted As Integer = 0
-    Dim version As String = "0.4"
+    Dim version As String = "0.7"
     Dim potentialvirus As Integer = 0
     Dim virus As Integer = 0
     <DllImport("kernel32.dll", SetLastError:=True)>
@@ -136,6 +136,7 @@ Public Class MDIParent1
             IO.Directory.CreateDirectory("C:\VirtualSystem\Ramenen\Groups\Programs")
             IO.Directory.CreateDirectory("C:\VirtualSystem\Ramenen\Groups\System")
             IO.File.WriteAllText("C:\VirtualSystem\Ramenen\Groups\System\status.ras", "1")
+            IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\System\controlpanel.rex", My.Resources.control)
             IO.File.Create("C:\VirtualSystem\Ramenen\Groups\System\ramenen.ini").Close()
             WriteINI("C:\VirtualSystem\Ramenen\Groups\System\ramenen.ini", "Colors", "StripColor", "LightGray")
             IO.File.Create("C:\VirtualSystem\Ramenen\Groups\System\firewall.ini").Close()
@@ -146,7 +147,9 @@ Public Class MDIParent1
             IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\colors.rex", My.Resources.colors)
             IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\tgo.rex", My.Resources.tgo)
             IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\drawingpad.rex", My.Resources.drawingpad)
-            IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\calculator.rex", My.Resources.calc)
+            IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\calc.rex", My.Resources.calc)
+            IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\noodlestore.rex", My.Resources.noodlestore)
+            IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\Newtonsoft.Json.dll", My.Resources.json)
             IO.File.Create("C:\VirtualSystem\Ramenen\System\progman.rpf").Close()
             IO.File.WriteAllText("C:\VirtualSystem\Ramenen\System\progman.rpf", "RMN::StartProgramManager(WithByte(x20));")
             IO.File.Create("C:\VirtualSystem\Ramenen\System\RMN.rpr").Close()
@@ -191,15 +194,19 @@ Public Class MDIParent1
     End Sub
     Private Sub ListBox1_DoubleClick(sender As Object, e As EventArgs) Handles ListBox1.DoubleClick
         If Not ListBox1.SelectedIndex = -1 Then
-            Dim newChild = New cder
-            Dim di As New DirectoryInfo("C:\VirtualSystem\Ramenen\Groups\" + ListBox1.SelectedItem)
-            Dim fiArr As FileInfo() = di.GetFiles()
-            Dim fri As FileInfo
-            For Each fri In fiArr
-                newChild.ListBox1.Items.Add(ListBox1.SelectedItem.Split("\")(0) & "\" & fri.Name)
-            Next
-            newChild.MdiParent = Me
-            newChild.Show()
+            If IO.Directory.Exists("C:\VirtualSystem\Ramenen\Groups\" + ListBox1.SelectedItem) Then
+                Dim newChild = New cder
+                Dim di As New DirectoryInfo("C:\VirtualSystem\Ramenen\Groups\" + ListBox1.SelectedItem)
+                Dim fiArr As FileInfo() = di.GetFiles()
+                Dim fri As FileInfo
+                For Each fri In fiArr
+                    newChild.ListBox1.Items.Add(ListBox1.SelectedItem.Split("\")(0) & "\" & fri.Name)
+                Next
+                newChild.MdiParent = Me
+                newChild.Show()
+            Else
+                UpdateGroups()
+            End If
         End If
     End Sub
     Private Sub NewFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewFileToolStripMenuItem.Click
@@ -364,6 +371,19 @@ Public Class MDIParent1
             newOops.MdiParent = Me
             newOops.Show()
         End Try
+        UpdateGroups()
+    End Sub
+
+    Private Sub RestartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestartToolStripMenuItem.Click
+        dontaskclose = True
+        Application.Restart()
+    End Sub
+
+    Private Sub ExitToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem1.Click
+        Me.Close()
+    End Sub
+
+    Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
         UpdateGroups()
     End Sub
 End Class

@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>Ramenen_For_Work.My.MyApplication</StartupObject>
     <RootNamespace>Ramenen_For_Work</RootNamespace>
-    <AssemblyName>Ramenen FW</AssemblyName>
+    <AssemblyName>Ramenen</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -16,13 +16,13 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Ramenen FW.xml</DocumentationFile>
+    <DocumentationFile>Ramenen.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -33,7 +33,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Ramenen FW.xml</DocumentationFile>
+    <DocumentationFile>Ramenen.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
@@ -165,11 +165,16 @@
     </None>
     <None Include="Resources\calc.rex" />
     <None Include="Resources\colors.rex" />
+    <None Include="Resources\control.rex" />
     <None Include="Resources\drawingpad.rex" />
+    <None Include="Resources\noodlestore.rex" />
     <None Include="Resources\tgo.rex" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1616999-1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Newtonsoft.Json.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

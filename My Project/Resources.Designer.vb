@@ -83,9 +83,39 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Byte[].
         '''</summary>
+        Friend ReadOnly Property control() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("control", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
         Friend ReadOnly Property drawingpad() As Byte()
             Get
                 Dim obj As Object = ResourceManager.GetObject("drawingpad", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property json() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("json", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property noodlestore() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("noodlestore", resourceCulture)
                 Return CType(obj,Byte())
             End Get
         End Property

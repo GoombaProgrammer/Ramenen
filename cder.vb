@@ -31,6 +31,11 @@ Public Class cder
                 notepad.open("C:\VirtualSystem\Ramenen\Groups\" + ListBox1.SelectedItem.ToString)
                 notepad.dir = ListBox1.SelectedItem.split("\")(0)
                 notepad.Show()
+            ElseIf ListBox1.SelectedItem.ToString.ToLower().EndsWith(".png") Or ListBox1.SelectedItem.ToString.ToLower().EndsWith(".jpg") Then
+                Dim notepad As New Oops
+                notepad.MdiParent = MDIParent1
+                notepad.setReason("Photo viewer coming soon.")
+                notepad.Show()
             ElseIf ListBox1.SelectedItem.ToString.ToLower().EndsWith(".ini") Then
                 Dim notepad As New Notepad
                 notepad.MdiParent = MDIParent1
@@ -46,7 +51,7 @@ Public Class cder
                 Try
                     Dim child As New Form()
                     Dim t = New AssemblyName()
-                    Dim asm As Assembly = Assembly.LoadFile("C:\VirtualSystem\Ramenen\Groups\" & ListBox1.SelectedItem.ToString)
+                    Dim asm As Assembly = Assembly.LoadFrom("C:\VirtualSystem\Ramenen\Groups\" & ListBox1.SelectedItem.ToString)
                     Dim Type As Type = asm.GetType(GetAssemblyNamespace(asm) & ".RamenenDefault", True, True)
                     Dim childform = Activator.CreateInstance(Type)
                     child = childform
@@ -84,8 +89,4 @@ Public Class cder
 
         Return ns
     End Function
-
-    Private Sub cder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 End Class
