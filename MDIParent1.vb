@@ -6,7 +6,7 @@ Imports System.Windows.Forms
 Public Class MDIParent1
     Dim dontaskclose = False
     Dim unwanted As Integer = 0
-    Dim version As String = "0.7"
+    Dim version As String = "0.8"
     Dim potentialvirus As Integer = 0
     Dim virus As Integer = 0
     <DllImport("kernel32.dll", SetLastError:=True)>
@@ -348,7 +348,7 @@ Public Class MDIParent1
 
     Private Sub DeleteToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeleteToolStripMenuItem.Click
         Me.TopMost = False
-        Dim oldName = InputBox("Which file or group do you want to delete? (ex. Programs\example.rex)")
+        Dim oldName = InputBox("Which file or group do you want to delete? (ex. Programs\example.rex)").Replace("..", "")
         Me.TopMost = True
         Try
             If Not oldName = "" Then

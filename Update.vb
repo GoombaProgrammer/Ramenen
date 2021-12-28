@@ -11,7 +11,7 @@
             End If
         Catch
         End Try
-        Process.Start("https://www.taart.site/ramenen/Ramenen.exe")
+        Process.Start("https://www.taart.site/ramenen/Ramenen.exe?vr=" & New Random().Next(1, 99999999))
         Application.Exit()
     End Sub
 
