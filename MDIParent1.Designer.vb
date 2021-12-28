@@ -60,6 +60,8 @@ Partial Class MDIParent1
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
+        Me.CreditsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -224,7 +226,7 @@ Partial Class MDIParent1
         '
         'ToolsMenu
         '
-        Me.ToolsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.AntiVirusToolStripMenuItem, Me.ScanForVirussesToolStripMenuItem})
+        Me.ToolsMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OptionsToolStripMenuItem, Me.AntiVirusToolStripMenuItem, Me.ScanForVirussesToolStripMenuItem, Me.ToolStripSeparator1, Me.CreditsToolStripMenuItem})
         Me.ToolsMenu.Name = "ToolsMenu"
         Me.ToolsMenu.Size = New System.Drawing.Size(46, 20)
         Me.ToolsMenu.Text = "&Tools"
@@ -232,19 +234,19 @@ Partial Class MDIParent1
         'OptionsToolStripMenuItem
         '
         Me.OptionsToolStripMenuItem.Name = "OptionsToolStripMenuItem"
-        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.OptionsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.OptionsToolStripMenuItem.Text = "&Options"
         '
         'AntiVirusToolStripMenuItem
         '
         Me.AntiVirusToolStripMenuItem.Name = "AntiVirusToolStripMenuItem"
-        Me.AntiVirusToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.AntiVirusToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.AntiVirusToolStripMenuItem.Text = "&Firewall Settings"
         '
         'ScanForVirussesToolStripMenuItem
         '
         Me.ScanForVirussesToolStripMenuItem.Name = "ScanForVirussesToolStripMenuItem"
-        Me.ScanForVirussesToolStripMenuItem.Size = New System.Drawing.Size(162, 22)
+        Me.ScanForVirussesToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ScanForVirussesToolStripMenuItem.Text = "&Scan for Virusses"
         '
         'WindowsMenu
@@ -257,31 +259,31 @@ Partial Class MDIParent1
         'CascadeToolStripMenuItem
         '
         Me.CascadeToolStripMenuItem.Name = "CascadeToolStripMenuItem"
-        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.CascadeToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CascadeToolStripMenuItem.Text = "&Cascade"
         '
         'TileVerticalToolStripMenuItem
         '
         Me.TileVerticalToolStripMenuItem.Name = "TileVerticalToolStripMenuItem"
-        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.TileVerticalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TileVerticalToolStripMenuItem.Text = "Tile &Vertical"
         '
         'TileHorizontalToolStripMenuItem
         '
         Me.TileHorizontalToolStripMenuItem.Name = "TileHorizontalToolStripMenuItem"
-        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.TileHorizontalToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.TileHorizontalToolStripMenuItem.Text = "Tile &Horizontal"
         '
         'CloseAllToolStripMenuItem
         '
         Me.CloseAllToolStripMenuItem.Name = "CloseAllToolStripMenuItem"
-        Me.CloseAllToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.CloseAllToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.CloseAllToolStripMenuItem.Text = "C&lose All"
         '
         'ArrangeIconsToolStripMenuItem
         '
         Me.ArrangeIconsToolStripMenuItem.Name = "ArrangeIconsToolStripMenuItem"
-        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.ArrangeIconsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.ArrangeIconsToolStripMenuItem.Text = "&Arrange Icons"
         '
         'ListBox1
@@ -301,13 +303,24 @@ Partial Class MDIParent1
         '
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RefreshToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(181, 48)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(114, 26)
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(113, 22)
         Me.RefreshToolStripMenuItem.Text = "Refresh"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        '
+        'CreditsToolStripMenuItem
+        '
+        Me.CreditsToolStripMenuItem.Name = "CreditsToolStripMenuItem"
+        Me.CreditsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.CreditsToolStripMenuItem.Text = "Credits"
         '
         'MDIParent1
         '
@@ -323,7 +336,7 @@ Partial Class MDIParent1
         Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "MDIParent1"
         Me.ShowInTaskbar = False
-        Me.Text = "MDIParent1"
+        Me.Text = "Ramenen Program Manager"
         Me.TopMost = True
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip.ResumeLayout(False)
@@ -368,4 +381,6 @@ Partial Class MDIParent1
     Friend WithEvents RestartToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents RefreshToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents CreditsToolStripMenuItem As ToolStripMenuItem
 End Class
