@@ -6,7 +6,7 @@ Imports System.Windows.Forms
 Public Class MDIParent1
     Dim dontaskclose = False
     Dim unwanted As Integer = 0
-    Dim version As String = "0.9"
+    Dim version As String = "1.0"
     Dim potentialvirus As Integer = 0
     Dim virus As Integer = 0
     <DllImport("kernel32.dll", SetLastError:=True)>
@@ -144,6 +144,7 @@ Public Class MDIParent1
             WriteINI("C:\VirtualSystem\Ramenen\Groups\System\firewall.ini", "Protection", "AllowAllFileNames", "False")
             WriteINI("C:\VirtualSystem\Ramenen\Groups\System\firewall.ini", "Protection", "CheckSystemDir", "True")
             WriteINI("C:\VirtualSystem\Ramenen\Groups\System\ramenen.ini", "Colors", "GroupsColor", "White")
+            WriteINI("C:\VirtualSystem\Ramenen\Groups\System\ramenen.ini", "Colors", "BackgroundColor", "Gray")
             IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\colors.rex", My.Resources.colors)
             IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\tgo.rex", My.Resources.tgo)
             IO.File.WriteAllBytes("C:\VirtualSystem\Ramenen\Groups\Programs\drawingpad.rex", My.Resources.drawingpad)
@@ -156,6 +157,11 @@ Public Class MDIParent1
             IO.File.WriteAllText("C:\VirtualSystem\Ramenen\System\RMN.rpr", "define StartProgramManager(new Byte(0)) = startXmlPlusPlus(<xmlpp><programs=mdiparent1 second=second>)")
         End If
         MenuStrip.BackColor = Color.FromName(ReadINI("C:\VirtualSystem\Ramenen\Groups\System\ramenen.ini", "Colors", "StripColor"))
+        For Each ctl As Control In Me.Controls
+            If TypeOf ctl Is MdiClient Then
+                ctl.BackColor = Color.FromName(ReadINI("C:\VirtualSystem\Ramenen\Groups\System\ramenen.ini", "Colors", "BackgroundColor"))
+            End If
+        Next ctl
         ListBox1.BackColor = Color.FromName(ReadINI("C:\VirtualSystem\Ramenen\Groups\System\ramenen.ini", "Colors", "GroupsColor"))
         If File.ReadAllText("C:\VirtualSystem\Ramenen\Groups\System\status.ras") = "2" Then
             IO.Directory.Delete("C:\VirtualSystem\Ramenen", True)
