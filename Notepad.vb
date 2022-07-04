@@ -44,7 +44,7 @@ Public Class Notepad
         MDIParent1.TopMost = False
         Dim newFileName = InputBox("Enter the group and file name. For example: groupname\foo.bar")
         If Not newFileName.Contains("\") Then
-            MsgBox("Invalid opcode.")
+            MsgBox("You need to specify 2 directories.")
         Else
             If IO.Directory.Exists("C:\VirtualSystem\Ramenen\Groups\" & newFileName.Split("\")(0)) Then
                 IO.File.WriteAllText("C:\VirtualSystem\Ramenen\Groups\" & newFileName.Split("\")(0) & "\" & newFileName.Split("\")(1), RichTextBox1.Text)
