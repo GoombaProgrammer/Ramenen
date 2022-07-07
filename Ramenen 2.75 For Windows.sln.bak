@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ramenen 2.75 For Windows", "Ramenen 2.75 For Windows.csproj", "{3364030D-C04E-0EC8-3805-C073788AB067}"
+Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "Ramenen 2.75 For Windows", "Ramenen 2.75 For Windows.vbproj", "{81408266-0C16-4139-BA5D-0A0D1A1D84C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3364030D-C04E-0EC8-3805-C073788AB067}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3364030D-C04E-0EC8-3805-C073788AB067}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3364030D-C04E-0EC8-3805-C073788AB067}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3364030D-C04E-0EC8-3805-C073788AB067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81408266-0C16-4139-BA5D-0A0D1A1D84C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81408266-0C16-4139-BA5D-0A0D1A1D84C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81408266-0C16-4139-BA5D-0A0D1A1D84C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81408266-0C16-4139-BA5D-0A0D1A1D84C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
