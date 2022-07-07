@@ -173,7 +173,7 @@ Public Class MDIParent1
             Application.Exit()
         End If
         UpdateGroups()
-        If Not version.StartsWith(New Net.WebClient().DownloadString("https://www.taart.site/ramenen/ver.txt")) Then
+        If Not version.StartsWith(New Net.WebClient().DownloadString("http://taart.site/ramenen/ver.txt")) Then
             Dim updatedialog As New Update
             updatedialog.MdiParent = Me
             updatedialog.Show()

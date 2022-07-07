@@ -74,8 +74,8 @@ Partial Class MDIParent1
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.WindowsMenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Padding = New System.Windows.Forms.Padding(4, 2, 0, 2)
-        Me.MenuStrip.Size = New System.Drawing.Size(1024, 24)
+        Me.MenuStrip.Padding = New System.Windows.Forms.Padding(5, 2, 0, 2)
+        Me.MenuStrip.Size = New System.Drawing.Size(1195, 24)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -143,7 +143,7 @@ Partial Class MDIParent1
         Me.UndoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem"
         Me.UndoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Z), System.Windows.Forms.Keys)
-        Me.UndoToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.UndoToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.UndoToolStripMenuItem.Text = "&Undo"
         '
         'RedoToolStripMenuItem
@@ -152,13 +152,13 @@ Partial Class MDIParent1
         Me.RedoToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.RedoToolStripMenuItem.Name = "RedoToolStripMenuItem"
         Me.RedoToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Y), System.Windows.Forms.Keys)
-        Me.RedoToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.RedoToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.RedoToolStripMenuItem.Text = "&Redo"
         '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(161, 6)
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(163, 6)
         '
         'CutToolStripMenuItem
         '
@@ -166,7 +166,7 @@ Partial Class MDIParent1
         Me.CutToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.CutToolStripMenuItem.Name = "CutToolStripMenuItem"
         Me.CutToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.CutToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.CutToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.CutToolStripMenuItem.Text = "Cu&t"
         '
         'CopyToolStripMenuItem
@@ -175,7 +175,7 @@ Partial Class MDIParent1
         Me.CopyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem"
         Me.CopyToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.CopyToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.CopyToolStripMenuItem.Text = "&Copy"
         '
         'PasteToolStripMenuItem
@@ -184,19 +184,19 @@ Partial Class MDIParent1
         Me.PasteToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.PasteToolStripMenuItem.Name = "PasteToolStripMenuItem"
         Me.PasteToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.PasteToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.PasteToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.PasteToolStripMenuItem.Text = "&Paste"
         '
         'ToolStripSeparator7
         '
         Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(161, 6)
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(163, 6)
         '
         'SelectAllToolStripMenuItem
         '
         Me.SelectAllToolStripMenuItem.Name = "SelectAllToolStripMenuItem"
         Me.SelectAllToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
+        Me.SelectAllToolStripMenuItem.Size = New System.Drawing.Size(166, 22)
         Me.SelectAllToolStripMenuItem.Text = "Select &All"
         '
         'ViewMenu
@@ -301,13 +301,13 @@ Partial Class MDIParent1
         '
         Me.ListBox1.ContextMenuStrip = Me.ContextMenuStrip1
         Me.ListBox1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!)
+        Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 15
         Me.ListBox1.Location = New System.Drawing.Point(0, 24)
         Me.ListBox1.Margin = New System.Windows.Forms.Padding(2)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(118, 648)
+        Me.ListBox1.Size = New System.Drawing.Size(137, 751)
         Me.ListBox1.TabIndex = 9
         '
         'ContextMenuStrip1
@@ -324,21 +324,21 @@ Partial Class MDIParent1
         '
         'MDIParent1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 15.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange
         Me.BackColor = System.Drawing.SystemColors.ButtonShadow
-        Me.ClientSize = New System.Drawing.Size(1024, 672)
+        Me.ClientSize = New System.Drawing.Size(1195, 775)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.MenuStrip)
         Me.Cursor = System.Windows.Forms.Cursors.Hand
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
+        Me.Margin = New System.Windows.Forms.Padding(4, 3, 4, 3)
         Me.Name = "MDIParent1"
         Me.ShowInTaskbar = False
         Me.Text = "Ramenen Program Manager"
-        Me.TopMost = True
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
