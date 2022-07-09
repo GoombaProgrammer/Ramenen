@@ -11,12 +11,15 @@ namespace Ramenen_For_Work {
 
     public partial class MDIParent1 {
         public bool dontAskClose = false;
-        public int unwanted, potentiualVirus, virus, closeToDebug, m_ChildFormNumber = 0;
+        public int unwanted, potentialVirus, virus, closeToDebug, m_ChildFormNumber = 0;
         public string version = "1.0";
         public string RootPath { get; set; } = @"C:\VirtualSystem\Ramenen";
 
+        public static MDIParent1 CurrentInstance { get; private set; }
+
         public MDIParent1() {
             InitializeComponent();
+            CurrentInstance = this;
         }
 
         private void ShowNewForm(object sender, EventArgs e) {
@@ -234,6 +237,120 @@ namespace Ramenen_For_Work {
 
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e) {
             ListBox1.Visible = ToolBarToolStripMenuItem.Checked;    
+        }
+
+        private void AntiVirusToolStripMenuItem_Click(object sender, EventArgs e) {
+            this.TopMost = false;
+            var answer = MessageBox.Show("Do you want to edit the Ramenen Firewall/Anti-Virus configuration?", "Ramenen Firewall", MessageBoxButtons.YesNo);
+
+            if(answer == DialogResult.Yes) {
+                var notepad = new Notepad();
+                notepad.MdiParent = this;
+                notepad.Open($@"{RootPath}\Groups\System\firewall.ini");
+                notepad.Directory = "System";
+                notepad.Show();
+            }
+        }
+
+        private void ScanForVirussesToolStripMenuItem_Click(object sender, EventArgs e) {
+            GetFiles(RootPath);
+
+            MessageBox.Show("Complete. " + (virus + potentialVirus + unwanted) + " virus found, where " + (potentialVirus + unwanted) + " may not be a virus");
+
+            unwanted = 0;
+            potentialVirus = 0;
+            virus = 0;
+        }
+
+        public void GetFiles(string path) {
+            string[] files = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly);
+
+            bool allowAllFileNames = INI.ReadIni($@"{RootPath}\Groups\System\firewall.ini", "Protection", "AllowAllFileNames") == "False";
+
+            // Conversion note: The anti virus seems pretty shitty, no front, not gonna implement (at least for now)
+            foreach(string file in files) {
+
+            }
+        }
+
+        private void RenameToolStripMenuItem_Click(object e, EventArgs e) {
+            try {
+                this.TopMost = false;
+                string oldName = InputBox.Show("InputBox", "Enter the file name and group you want to move (ex. Programs\\tgo.rex)");
+                string newName = InputBox.Show("InputBox", "Enter the file name and groups (ex. Programs\\tgo_backup.rex)");
+                this.TopMost = true;
+
+                File.Move($@"{RootPath}\Groups\" + oldName, $@"{RootPath}\Groups\" + newName);
+
+                // Conversion note: Is this even needed?
+                var newMe = new MDIParent1();
+
+                foreach(Form childForm in MdiChildren) {
+                    childForm.MdiParent = this;
+                }
+
+                newMe.Show();
+                dontAskClose = true;
+                Close();
+            }catch(Exception ex) {
+                var newOops = new Oops();
+                newOops.SetReason("Fatal error during move! Does the file / group exist?");
+                newOops.MdiParent = this;
+                newOops.Show();
+            }
+        }
+
+        private void MenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
+            ListBox1.Visible = ToolBarToolStripMenuItem.Checked;
+        }
+
+        private void DeleteToolStripMenuItem_Click(object sender, EventArgs e) {
+            TopMost = false;
+            string oldName = InputBox.Show("InputBox", "Which file or group do you want to delete? (ex Programs\\example.rex)").Replace("..", "");
+            TopMost = true;
+
+            try {
+                if(oldName != string.Empty) {
+                    if(File.Exists($@"{RootPath}\Groups\{oldName}")) {
+                        File.Delete($@"{RootPath}\Groups\{oldName}");
+                    }else {
+                        if(Directory.Exists($@"{RootPath}\Groups\{oldName}")) {
+                            Directory.Delete($@"{RootPath}\Groups\{oldName}", true);
+                        }
+                    }
+                }else {
+                    var newOops = new Oops();
+                    newOops.SetReason("Fatal error during deletion! Does the file / group exist?");
+                    newOops.MdiParent = this;
+                    newOops.Show();
+                }
+            }catch(Exception ex) {
+                var newOops = new Oops();
+                newOops.SetReason("Fatal error during deletion! Does the file / group exist?");
+                newOops.MdiParent = this;
+                newOops.Show();
+            }
+
+            UpdateGroups();
+        }
+
+        private void RestartToolStripMenuItem_Click(object sender, EventArgs e) {
+            dontAskClose = true;
+            Application.Restart();
+        }
+
+        private void ExitToolStripMenuItem1_Click(object sender, EventArgs e) {
+            Close();
+        }
+
+        private void RefreshToolStripMenuItem_Click(object sender, EventArgs e) {
+            UpdateGroups();
+        }
+
+        private void CreditsToolStripMenuItem_Click(object sender, EventArgs e) {
+            TopMost = false;
+            MessageBox.Show("Main developer: Imusing / Ava#7777. NoodleStore and some other stuff by GoldenretriverYT. You, for using this!");
+            TopMost = true;
         }
     }
 }
