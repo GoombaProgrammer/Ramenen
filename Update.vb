@@ -11,11 +11,14 @@
             End If
         Catch
         End Try
-        Process.Start("https://www.taart.site/ramenen/Ramenen.exe?vr=" & New Random().Next(1, 99999999))
+        ' Process.Start("https://ramenen.novixx.com/Ramenen.exe?vr=" & New Random().Next(1, 99999999))
+        Dim wc As New Net.WebClient
+        wc.DownloadFile("https://ramenen.novixx.com/Ramenen.exe", "C:\VirtualSystem\Ramenen.exe")
+        wc.Dispose()
         Application.Exit()
     End Sub
 
     Private Sub Update_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        RichTextBox1.Text = New Net.WebClient().DownloadString("https://www.taart.site/ramenen/rnotes.txt")
+        RichTextBox1.Text = New Net.WebClient().DownloadString("https://ramenen.novixx.com/update.txt")
     End Sub
 End Class

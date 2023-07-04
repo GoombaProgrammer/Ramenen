@@ -6,7 +6,7 @@ Imports System.Windows.Forms
 Public Class MDIParent1
     Dim dontaskclose = False
     Dim unwanted As Integer = 0
-    Dim version As String = "1.0"
+    Dim version As String = "1.01"
     Dim potentialvirus As Integer = 0
     Dim virus As Integer = 0
     <DllImport("kernel32.dll", SetLastError:=True)>
@@ -173,7 +173,7 @@ Public Class MDIParent1
             Application.Exit()
         End If
         UpdateGroups()
-        If Not version.StartsWith(New Net.WebClient().DownloadString("http://taart.site/ramenen/ver.txt")) Then
+        If Not version.StartsWith(New Net.WebClient().DownloadString("https://ramenen.novixx.com/ver.txt")) Then
             Dim updatedialog As New Update
             updatedialog.MdiParent = Me
             updatedialog.Show()
@@ -395,7 +395,7 @@ Public Class MDIParent1
 
     Private Sub CreditsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CreditsToolStripMenuItem.Click
         Me.TopMost = False
-        MsgBox("Main developer: Imusing / Ava#7777. NoodleStore and some other stuff by GoldenretriverYT. You, for using this!")
+        MsgBox("Main developer: Imusing (Novixx Systems). NoodleStore and some other stuff by GoldenretriverYT. You, for using this!")
         Me.TopMost = True
     End Sub
 End Class
